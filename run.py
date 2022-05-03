@@ -15,3 +15,28 @@ def legitimate_word(random_words):
         word = random.choice(random_words)
 
     return word.upper()
+
+def welcome_dear_player():
+    """
+    Greets the player.
+    Collects player name from the terminal.
+    Making sure that player has only letters in his name using isalpha method,
+    otherwise notifies the player about the issue.
+    Coverts first letter of the players name to capital using capitalize method.
+    """
+    player_name = input("""<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3
+Welcome to The Hangman!!! 
+Please enter your name: """).capitalize()
+    
+    if player_name.isalpha() == True:
+        print("""\nHello""", player_name, """nice to meet you! :D 
+
+The goal of the game is to guess the
+right word & not die, good luck and have fun!
+<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""") 
+
+    else:
+        print("\nOoops, it seems you haven't used only letters in your name...")
+        player_name = input("Please enter your name again: ").capitalize()
+        print("""\nHello""", player_name, """nice to meet you! :D
+<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
