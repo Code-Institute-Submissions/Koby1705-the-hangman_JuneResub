@@ -41,6 +41,7 @@ right word & not die, good luck and have fun!
         print("""\nHello""", player_name, """nice to meet you! :D
 <3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
 
+
 # constant variable which indicates the number of lives left to the player
 # each life is lost by the wrong answer
 LIVES = ['''
@@ -79,3 +80,29 @@ LIVES = ['''
   /|\  |
   / \  |
       ===''']
+
+
+def hangman_game(wrong_letters, correct_letters, secret_word):
+    """
+    This function prints the board of the hangman game depending of how many lives
+    player still has.
+    Function also shows how many letters player has correctly and incorecctly guessed.
+    """
+    print(LIVES[len(wrong_letters)])
+    print("\nWrong letters are:")
+    # iterates over each letter in the string wrong_letters
+    for letter in wrong_letters:
+        print(letter)
+    print()
+
+    # secret word is displayed with the gaps(underscores)
+    gaps = "_" * len(secret_word)
+
+    # loop goes through each letter in secret_word and replaces the underscore
+    # with the existing letter in correct_letters
+    for x in range(len(secret_word)):
+        if secret_word[x] in correct_letters:
+            gaps = gaps[:x] + secret_word[x] + gaps[x+1:]
+
+    for letter in gaps:
+        print(letter)
