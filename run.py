@@ -40,3 +40,42 @@ right word & not die, good luck and have fun!
         player_name = input("Please enter your name again: ").capitalize()
         print("""\nHello""", player_name, """nice to meet you! :D
 <3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
+
+# constant variable which indicates the number of lives left to the player
+# each life is lost by the wrong answer
+LIVES = ['''
+   +---+
+       |
+       |
+       |
+      ===''', '''
+   +---+
+   O   |
+       |
+       |
+      ===''', '''
+   +---+
+   O   |
+   |   |
+       |
+      ===''', '''
+   +---+
+   O   |
+  /|   |
+       |
+      ===''', '''
+   +---+
+   O   |
+  /|\  |
+       |
+      ===''', '''
+   +---+
+   O   |
+  /|\  |
+  /    |
+      ===''', '''
+   +---+
+   O   |
+  /|\  |
+  / \  |
+      ===''']
