@@ -16,6 +16,7 @@ def legitimate_word(random_words):
 
     return word.upper()
 
+
 def welcome_dear_player():
     """
     Greets the player.
@@ -106,3 +107,20 @@ def hangman_game(wrong_letters, correct_letters, secret_word):
 
     for letter in gaps:
         print(letter)
+
+
+def player_speculation(guessed_already):
+    """
+    Function ensures that only single letter from english alphabet
+    can be entered.
+    """
+    while True:
+        guess = input("Guess a letter please: ").upper()
+        if len(guess) != 1:
+            print("Enter single letter please!")
+        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
+            print("Enter letter from the english alphabet please!")
+        elif guess in guessed_already:
+            print("Letter", guess, "has been tried already, please try again!")
+        else:
+            return guess
