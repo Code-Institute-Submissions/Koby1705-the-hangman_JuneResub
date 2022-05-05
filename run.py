@@ -95,10 +95,12 @@ def hangman_game(wrong_letters, correct_letters, secret_word):
     Function also shows how many letters player has correctly and incorecctly guessed.
     """
     print(LIVES[len(wrong_letters)])
-    print("\nWrong letters are:")
+    print()
+
+    print("\nWrong letters are:", end = " ")
     # iterates over each letter in the string wrong_letters
     for letter in wrong_letters:
-        print(letter)
+        print(letter, end = " ")
     print()
 
     # secret word is displayed with the gaps(underscores)
@@ -111,7 +113,7 @@ def hangman_game(wrong_letters, correct_letters, secret_word):
             gaps = gaps[:x] + secret_word[x] + gaps[x+1:]
 
     for letter in gaps:
-        print(letter)
+        print(letter, end = " ")
 
 
 def player_speculation(guessed_already):
@@ -120,7 +122,7 @@ def player_speculation(guessed_already):
     can be entered.
     """
     while True:
-        print("Guess a letter please:")
+        print("\nGuess a letter please:")
         guess = input()
         guess = guess.upper()
         if len(guess) != 1:
@@ -137,7 +139,8 @@ def new_game():
     """
     Function returns True if player wants to play again, if not it will return False.
     """
-    response = input("Play again? (Y/N): ").upper()
+    response = input("\nPlay again? (Y/N): ").upper()
+    print()
 
     if response == "Y":
         program_run()
@@ -151,7 +154,7 @@ def program_run():
     Allows the player to speculate and enter the letter.
     Checks if player completed the whole secret word.
     Handling incorrect guesses and did player lost the game.
-    Resets or end the game.
+    Resets or ends the game.
     """
     welcome_dear_player()
     wrong_letters = " "
@@ -166,20 +169,21 @@ def program_run():
         
         if guess in secret_word:
             correct_letters = guess + correct_letters
+            
             word_completion = True
             for x in range(len(secret_word)):
                 if secret_word[x] not in correct_letters:
                     word_completion = False
                     break
             if word_completion:
-                print(" Congrats! You're not dying today, you won the game!")
+                print("Congrats! You're not dying today, you won the game!")
                 game_over = True
         else:
             wrong_letters = guess + wrong_letters
 
             if len(wrong_letters) == len(LIVES) -1:
                 hangman_game(wrong_letters, correct_letters, secret_word)
-                print("Game over, you died! Secret word was", secret_word)
+                print("\nGame over, you died! Secret word was", secret_word)
                 game_over = True
 
             if game_over:
