@@ -11,7 +11,7 @@ def legitimate_word(random_words):
     in a string into uppercase characters.
     """
     word = random.choice(random_words)
-    while " " or "-" in word:
+    while " " in word or "-" in word:
         word = random.choice(random_words)
 
     return word.upper()
@@ -139,11 +139,13 @@ def program_run():
     Calls the welcome_dear_player function to greet the player and collect player's name.
     Allows the player to speculate and enter the letter.
     Checks if player completed the whole secret word.
+    Handling incorrect guesses and did player lost the game.
+    Resets or end the game.
     """
     welcome_dear_player()
-    secret_word = legitimate_word(random_words)
     wrong_letters = " "
     correct_letters = " "
+    secret_word = legitimate_word(random_words)
     game_over = False
 
     while True:
@@ -163,3 +165,19 @@ def program_run():
                 game_over = True
         else:
             wrong_letters = guess + wrong_letters
+
+            if len(wrong_letters) == len(LIVES) -1:
+                hangman_game(wrong_letters, correct_letters, secret_word)
+                print("Game over, you died! Secret word was", secret_word)
+                game_over = True
+
+            if game_over:
+                if new_game():
+                    wrong_letters = " "
+                    correct_letters = " "
+                    game_over = False
+                    secret_word = legitimate_word(random_words)
+                else:
+                    break
+
+program_run()
