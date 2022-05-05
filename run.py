@@ -6,8 +6,10 @@ from words import random_words
 
 def legitimate_word(random_words):
     """
-    Making sure that words from the list with dashes and white spaces are eliminated.
-    Chooses random, valid word from a list and converts all lowercase characters
+    Making sure that words from the list with dashes and white spaces
+    are eliminated.
+    Chooses random, valid word from a list and converts
+    all lowercase characters
     in a string into uppercase characters.
     """
     word = random.choice(random_words)
@@ -23,7 +25,8 @@ def welcome_dear_player():
     Collects player name from the terminal.
     Making sure that player has only letters in his name using isalpha method,
     otherwise notifies the player about the issue.
-    Coverts first letter of the players name to capital using capitalize method.
+    Coverts first letter of the players name to capital using
+    capitalize method.
     """
     player_name = input("""<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3
 Welcome to The Hangman!!! 
@@ -83,6 +86,8 @@ LIVES = ['''
       ===''']
 
 
+ALPHABET = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
 def hangman_game(wrong_letters, correct_letters, secret_word):
     """
     This function prints the board of the hangman game depending of how many lives
@@ -115,10 +120,12 @@ def player_speculation(guessed_already):
     can be entered.
     """
     while True:
-        guess = input("Guess a letter please:\n").upper()
+        print("Guess a letter please:")
+        guess = input()
+        guess = guess.upper()
         if len(guess) != 1:
             print("Enter single letter please!")
-        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
+        elif guess not in ALPHABET:
             print("Enter letter from the english alphabet please!")
         elif guess in guessed_already:
             print("Letter", guess, "has been tried already, please try again!")
