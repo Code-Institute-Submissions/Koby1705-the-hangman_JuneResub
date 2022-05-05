@@ -137,8 +137,12 @@ def new_game():
     """
     Function returns True if player wants to play again, if not it will return False.
     """
-    print("Play again? (Y/N)")
-    return input().upper().startswith("y")
+    response = input("Play again? (Y/N): ").upper()
+
+    if response == "Y":
+        program_run()
+    else:
+        print("See you next time! Bye-Bye...")
 
 
 def program_run():
@@ -186,5 +190,6 @@ def program_run():
                     secret_word = legitimate_word(random_words)
                 else:
                     break
+
 
 program_run()
