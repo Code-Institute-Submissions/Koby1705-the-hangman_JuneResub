@@ -128,8 +128,38 @@ def player_speculation(guessed_already):
 
 def new_game():
     """
-    Function returns true if player wants to play again, if not it will return false.
+    Function returns True if player wants to play again, if not it will return False.
+    Allows the player to speculate and enter the letter.
     """
     welcome_dear_player()
     print("Play again? (Y/N)")
     return input().upper().startswith("y")
+
+
+def program_run():
+    """
+    Allows the player to speculate and enter the letter.
+    Checks if player completed the whole secret word.
+    """
+    secret_word = legitimate_word(random_words)
+    wrong_letters = " "
+    correct_letters = " "
+    game_over = False
+
+    while True:
+        hangman_game(wrong_letters, correct_letters, secret_word)
+
+        guess = player_speculation(wrong_letters + correct_letters)
+        
+        if guess in secret_word:
+            correct_letters = guess + correct_letters
+            word_completion = True
+            for x in range(len(secret_word)):
+                if secret_word[x] not in correct_letters:
+                    word_completion = False
+                    break
+            if word_completion:
+                print(" Congrats! You're not dying today, you won the game!")
+                game_over = True
+        else:
+            wrong_letters = guess + wrong_letters
