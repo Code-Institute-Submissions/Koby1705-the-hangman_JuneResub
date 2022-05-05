@@ -27,7 +27,7 @@ def welcome_dear_player():
     """
     player_name = input("""<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3
 Welcome to The Hangman!!! 
-Please enter your name: """).capitalize()
+Please enter your name:\n""").capitalize()
     
     if player_name.isalpha() == True:
         print("""\nHello""", player_name, """nice to meet you! :D 
@@ -38,7 +38,7 @@ right word & not die, good luck and have fun!
 
     else:
         print("\nOoops, it seems you haven't used only letters in your name...")
-        player_name = input("Please enter your name again: ").capitalize()
+        player_name = input("Please enter your name again:\n").capitalize()
         print("""\nHello""", player_name, """nice to meet you! :D
 <3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
 
@@ -115,7 +115,7 @@ def player_speculation(guessed_already):
     can be entered.
     """
     while True:
-        guess = input("Guess a letter please: ").upper()
+        guess = input("Guess a letter please:\n").upper()
         if len(guess) != 1:
             print("Enter single letter please!")
         elif guess not in 'abcdefghijklmnopqrstuvwxyz':
@@ -124,3 +124,12 @@ def player_speculation(guessed_already):
             print("Letter", guess, "has been tried already, please try again!")
         else:
             return guess
+
+
+def new_game():
+    """
+    Function returns true if player wants to play again, if not it will return false.
+    """
+    welcome_dear_player()
+    print("Play again? (Y/N)")
+    return input().upper().startswith("y")
