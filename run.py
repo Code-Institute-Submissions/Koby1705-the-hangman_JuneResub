@@ -129,18 +129,18 @@ def player_speculation(guessed_already):
 def new_game():
     """
     Function returns True if player wants to play again, if not it will return False.
-    Allows the player to speculate and enter the letter.
     """
-    welcome_dear_player()
     print("Play again? (Y/N)")
     return input().upper().startswith("y")
 
 
 def program_run():
     """
+    Calls the welcome_dear_player function to greet the player and collect player's name.
     Allows the player to speculate and enter the letter.
     Checks if player completed the whole secret word.
     """
+    welcome_dear_player()
     secret_word = legitimate_word(random_words)
     wrong_letters = " "
     correct_letters = " "
