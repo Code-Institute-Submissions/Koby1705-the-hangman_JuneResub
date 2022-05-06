@@ -157,12 +157,12 @@ def program_run():
     Resets or ends the game.
     """
     welcome_dear_player()
-    wrong_letters = " "
-    correct_letters = " "
+    wrong_letters = ""
+    correct_letters = ""
     secret_word = legitimate_word(random_words)
     game_over = False
 
-    while True:
+    while game_over is False:
         hangman_game(wrong_letters, correct_letters, secret_word)
 
         # allows the player to enter the letter
@@ -180,6 +180,14 @@ def program_run():
             if word_completion:
                 print("Congrats! You're not dying today, you won the game!")
                 game_over = True
+            if game_over:
+                if new_game():
+                    wrong_letters = ""
+                    correct_letters = ""
+                    game_over = False
+                    secret_word = legitimate_word(random_words)
+                else:
+                    break    
         else:
             wrong_letters = wrong_letters + guess
 
@@ -192,8 +200,8 @@ def program_run():
             # program checks if player want to play again when the game is done
             if game_over:
                 if new_game():
-                    wrong_letters = " "
-                    correct_letters = " "
+                    wrong_letters = ""
+                    correct_letters = ""
                     game_over = False
                     secret_word = legitimate_word(random_words)
                 else:
