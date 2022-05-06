@@ -13,3 +13,35 @@ Hangman is classic word guessing game played between two or more players. In thi
 - For every wrong guess the hangman appears bit by bit until the complete image is drawn.
 - Similarly, for every correctly guessed letter, the letters are placed on the screen until the word is completed and the player wins.
 - Player has 6 lives
+
+## Features
+
+### Existing Features
+
+- Welcomes the player
+- Collects player's name, capitalize it
+- Explains the goal of the game
+- Shows initial picture of The Hangman game (empty gallows)
+- Accepts user input
+- Play against the computer
+- Generates random word
+
+![Welcome](/images-readme.md/welcome-player-doc.png)
+
+- Input validation, error-check
+  - Player must enter letter from english alphabet
+  - Player can't enter the same guess multiple times
+  - Player is allowed to enter only single letter
+  - Player is getting notified about wrong letters
+
+![Input validation](/images-readme.md/input-validation-error-check-doc.png)
+
+- Game checks if player won or lost the game and prints appropriate message accordingly
+- Notifies the player what the secret word was
+- Asks the player if he would like to play the game again, if yes(Y,y) the game resets, if no(any other key), prints appropriate message and says good bye to the player
+
+![Game lost](/images-readme.md/won-lost-game-doc.png)
+
+![Game won](/images-readme.md/game-won-doc.png)
+
+![Play again](/images-readme.md/play-again-doc.png)
