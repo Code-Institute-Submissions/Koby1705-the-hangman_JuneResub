@@ -2,7 +2,27 @@
 
 Hangman is classic word guessing game played between two or more players. In this particular case game is played against the computer. Computer sets a word and the player has to guess correctly, given a certain number of trials. For every wrongly guessed word, a life in the game is lost and a “hanging-man” begins to appear, piece by piece. The aim is to solve the puzzle and guess the correct word before the hangman dies. It's a Python terminal game, which runs in The Code Institute mock terminal on Heroku.
 
+Live link for the site can be found here: https://the-hangman-1705.herokuapp.com/
+
 ![Responsivness](/images-readme.md/am-i-responsive-doc.png)
+
+# Contents Table
+
+1. [**How to play**](#how-to-play)
+   
+2. [**Features**](#features)
+   - [**Existing Features**](#existing-features)
+
+3. [**Testing**](#testing)
+   - [*Bugs*](#bugs)
+     - [*Solved Bugs*](#solved-bugs)
+     - [*Unsolved Bugs*](#unsolved-bugs)
+     - [Validator Testing](#validator-testing)
+
+4. [**Deployment**](#deployment)
+
+5. [**Credits**](#credits)
+   - [**Code**](#code)
 
 ## How to play
 
