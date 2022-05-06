@@ -70,3 +70,16 @@ I have manually tested the project doing the following:
 
 - PEP8
   - No relevant errors returned from [pep8online.com](http://pep8online.com/)
+
+## Deployment
+Project was deployed using Code Institute's mock terminal for Heroku
+
+- Steps:
+  - Create a new Heroku app
+  - Set the buildbacks to Python & NodeJS in that order
+  - Link Heroku app to the repository using Gitpod terminal
+    - heroku login -i
+    - enter personal email
+    - enter pasword using API Key from Heroku
+    - heroku git:remote -a "name of the app from Heroku"
+    - git push heroku main
