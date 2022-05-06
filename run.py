@@ -165,11 +165,13 @@ def program_run():
     while True:
         hangman_game(wrong_letters, correct_letters, secret_word)
 
+        # allows the player to enter the letter
         guess = player_speculation(wrong_letters + correct_letters)
         
         if guess in secret_word:
             correct_letters = guess + correct_letters
-            
+
+            # program checks if player won the game
             word_completion = True
             for x in range(len(secret_word)):
                 if secret_word[x] not in correct_letters:
@@ -181,11 +183,13 @@ def program_run():
         else:
             wrong_letters = guess + wrong_letters
 
+            # program checks if player lost the game
             if len(wrong_letters) == len(LIVES) -1:
                 hangman_game(wrong_letters, correct_letters, secret_word)
                 print("\nGame over, you died! Secret word was", secret_word)
                 game_over = True
-
+            
+            # program checks if player want to play again when the game is done
             if game_over:
                 if new_game():
                     wrong_letters = " "
@@ -195,5 +199,5 @@ def program_run():
                 else:
                     break
 
-
+# final and main function call to start the game
 program_run()
