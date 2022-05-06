@@ -83,3 +83,12 @@ Project was deployed using Code Institute's mock terminal for Heroku
     - enter pasword using API Key from Heroku
     - heroku git:remote -a "name of the app from Heroku"
     - git push heroku main
+
+## Credits
+
+- Code Institute for the deployment terminal
+- Scott & Gemma from tutor support who helped me and pointed me to right direction to solve some issues with my code
+
+### Code
+
+- Inspiration for the game was taken from few sources [Youtube.com](https://www.youtube.com/watch?v=m4nEnsavl6w) & [Youtube.com](https://www.youtube.com/watch?v=wmSysRui0cI&t=48s) & [Youtube.com](https://www.youtube.com/watch?v=cJJTnI22IF8) & [Chapter8](https://inventwithpython.com/invent4thed/chapter8.html) & [LearnPythonThroughProjects](https://mardiyyah.medium.com/a-simple-hangman-learnpythonthroughprojects-series-10-fedda58741b)
