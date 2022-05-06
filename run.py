@@ -169,7 +169,7 @@ def program_run():
         guess = player_speculation(wrong_letters + correct_letters)
         
         if guess in secret_word:
-            correct_letters = guess + correct_letters
+            correct_letters = correct_letters + guess
 
             # program checks if player won the game
             word_completion = True
@@ -181,7 +181,7 @@ def program_run():
                 print("Congrats! You're not dying today, you won the game!")
                 game_over = True
         else:
-            wrong_letters = guess + wrong_letters
+            wrong_letters = wrong_letters + guess
 
             # program checks if player lost the game
             if len(wrong_letters) == len(LIVES) -1:
