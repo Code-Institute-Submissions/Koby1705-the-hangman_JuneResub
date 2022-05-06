@@ -88,6 +88,7 @@ LIVES = ['''
 
 ALPHABET = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
+
 def hangman_game(wrong_letters, correct_letters, secret_word):
     """
     This function prints the board of the hangman game depending of how many lives

@@ -45,3 +45,28 @@ Hangman is classic word guessing game played between two or more players. In thi
 ![Game won](/images-readme.md/game-won-doc.png)
 
 ![Play again](/images-readme.md/play-again-doc.png)
+
+## Testing
+
+I have manually tested the project doing the following:
+- Passed the code through PEP8 linter and confirmed there are no problems, only irrelavant minor issues which don't affect the code
+- Given invalid inputs: same input twice, single letter input, inputs from english alphabet
+- Tested in my local Gitpod terminal & the Code Institute Heroku terminal
+
+### Bugs
+
+#### Solved Bugs
+
+- Game was starting with picture No.2 instead No.1 (empty gallows) in the list. 
+  - Simple fix by deleting empty space between quotation marks in wrong_letter & correct_letters variables
+- After completing the game I had to press extra random letter to finish the game instead automatic completion of the game after the win
+  - I had to change while loop in program_run function from True to False by adding variable game_over and declare it to False
+
+#### Unsolved Bugs
+
+- No remaining unsolved bugs
+
+#### Validator Testing
+
+- PEP8
+  - No relevant errors returned from [pep8online.com](http://pep8online.com/)
