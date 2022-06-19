@@ -1,10 +1,8 @@
-# import the random module
 import random
-# from file words.py gets english list of words stored in random_words variable
 from words import random_words
 
 
-def legitimate_word(random_words):   
+def legitimate_word(random_words):
     word = random.choice(random_words)
     while " " in word or "-" in word:
         word = random.choice(random_words)
@@ -12,20 +10,19 @@ def legitimate_word(random_words):
     return word.upper()
 
 
-def welcome_dear_player():   
+def welcome_dear_player():
     player_name = input("""<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3
-Welcome to The Hangman!!! 
+Welcome to The Hangman!!!
 Please enter your name:\n""").capitalize()
-    
-    if player_name.isalpha() == True:
-        print("""\nHello""", player_name, """nice to meet you! :D 
 
+    if player_name.isalpha():
+        print("""\nHello""", player_name, """nice to meet you! :D
 The goal of the game is to guess the
 right word & not die, good luck and have fun!
-<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""") 
+<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
 
     else:
-        print("\nOoops, it seems you haven't used only letters in your name...")
+        print("\nOoops,it seems you haven't used only letters in your name...")
         player_name = input("Please enter your name again:\n").capitalize()
         print("""\nHello""", player_name, """nice to meet you! :D
 <3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3<3""")
@@ -72,13 +69,13 @@ LIVES = ['''
 ALPHABET = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 
-def hangman_game(wrong_letters, correct_letters, secret_word):   
+def hangman_game(wrong_letters, correct_letters, secret_word):
     print(LIVES[len(wrong_letters)])
     print()
 
-    print("\nWrong letters are:", end = " ")
+    print("\nWrong letters are:", end=" ")
     for letter in wrong_letters:
-        print(letter, end = " ")
+        print(letter, end=" ")
     print()
 
     gaps = "_" * len(secret_word)
@@ -88,10 +85,10 @@ def hangman_game(wrong_letters, correct_letters, secret_word):
             gaps = gaps[:x] + secret_word[x] + gaps[x+1:]
 
     for letter in gaps:
-        print(letter, end = " ")
+        print(letter, end=" ")
 
 
-def player_speculation(guessed_already):    
+def player_speculation(guessed_already):
     while True:
         print("\nGuess a letter please:")
         guess = input()
@@ -127,7 +124,7 @@ def program_run():
         hangman_game(wrong_letters, correct_letters, secret_word)
 
         guess = player_speculation(wrong_letters + correct_letters)
-        
+
         if guess in secret_word:
             correct_letters = correct_letters + guess
 
@@ -146,15 +143,15 @@ def program_run():
                     game_over = False
                     secret_word = legitimate_word(random_words)
                 else:
-                    break    
+                    break
         else:
             wrong_letters = wrong_letters + guess
 
-            if len(wrong_letters) == len(LIVES) -1:
+            if len(wrong_letters) == len(LIVES) - 1:
                 hangman_game(wrong_letters, correct_letters, secret_word)
                 print("\nGame over, you died! Secret word was", secret_word)
                 game_over = True
-            
+
             if game_over:
                 if new_game():
                     wrong_letters = ""
@@ -163,5 +160,6 @@ def program_run():
                     secret_word = legitimate_word(random_words)
                 else:
                     break
+
 
 program_run()
