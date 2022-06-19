@@ -89,7 +89,7 @@ I have manually tested the project doing the following:
 #### Validator Testing
 
 - PEP8
-  - No relevant errors returned from [pep8online.com](http://pep8online.com/)
+  - No errors returned from [pep8online.com](http://pep8online.com/)
 
 ## Deployment
 Project was deployed using Code Institute's mock terminal for Heroku
